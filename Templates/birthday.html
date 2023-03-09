@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {%load static%}
+  <meta charset="UTF-8">
+  <title>CodePen - Birthday Gift</title>
+  <link rel="stylesheet" href="{% static 'style.css'%}">
+  <style>
+    #countdown {
+      position: fixed;
+      top: 20px;
+      right: 50px;
+      font-size: 48px;
+      color: rgb(229, 220, 220);
+      z-index: 9999;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class='moon'>
+    <div class='crater1'></div>
+    <div class='crater2'></div>
+    <div class='crater3'></div>
+  </div>
+  <canvas id="canvas"></canvas>
+  <div id="sea"></div>
+  <div id="beach"></div>
+  <img src="https://dl.dropbox.com/s/2k0mtrxc2dqurmh/jumping.png" alt="jumping-people" id="people" />
+  <!--<img src="https://dl.dropbox.com/s/zoftkmdxyyqr8ce/belair.png" alt="jumping-people" id="car" />-->
+  <div id="countdown"></div>
+
+  <div id="merrywrap" class="merrywrap">
+    <div class="giftbox">
+      <div class="cover">
+        <div></div>
+      </div>
+      <div class="box"></div>
+    </div>
+    <div class="icons">
+      <div class="row">
+        <span>H</span>
+        <span>a</span>
+        <span>p</span>
+        <span>p</span>
+        <span>y</span>
+      </div>
+      <div class="row">
+        <span>B</span>
+        <span>i</span>
+        <span>r</span>
+        <span>t</span>
+        <span>h</span>
+        <span>d</span>
+        <span>a</span>
+        <span>y</span>
+        <!-- <span>o</span> -->
+        <!-- <span>s</span>  -->
+      </div>
+      <div class="row">
+        <span>A</span>
+        <span>k</span>
+        <span>k</span>
+        <span>a</span>
+        <!-- <span>t</span>
+      <span>h</span>
+      <span>e</span>
+      <span>a</span>
+      <span>r</span>
+      <span>t</span> -->
+      </div>
+    </div>
+  </div>
+
+  <div id="video">
+    <!-- <img src="" alt=""> -->
+    <!-- <iframe width="255" height="155" src="https://www.youtube.com/embed/KDxJlW6cxRk?controls=0&loop=1" frameborder="0" allowfullscreen></iframe> -->
+  </div>
+  <!-- partial -->
+  <script src="{% static 'script.js'%}"></script>
+
+  <script>
+    // Set the countdown start time to 23:59:55
+    let countdownTime = 86395;
+
+    // Update the countdown every second
+    const countdownInterval = setInterval(() => {
+      // Calculate hours, minutes, and seconds
+      const hours = Math.floor(countdownTime / 3600);
+      const minutes = Math.floor((countdownTime % 3600) / 60);
+      const seconds = Math.floor(countdownTime % 60);
+
+      // Format the countdown display
+      const hoursString = hours.toString().padStart(2, '0');
+      const minutesString = minutes.toString().padStart(2, '0');
+      const secondsString = seconds.toString().padStart(2, '0');
+      const countdownString = `${hoursString}:${minutesString}:${secondsString}`;
+
+      // Update the countdown display
+      document.getElementById("countdown").innerHTML = countdownString;
+
+      // Decrement the countdown time by 1 second
+      countdownTime++;
+
+      // If the countdown is finished, clear the interval and display a birthday message
+      if (countdownTime < 0 || countdownTime >= 86401) {
+        clearInterval(countdownInterval);
+        document.getElementById("countdown").innerHTML = "March 10th 2023 </br> Happy Birthday!";
+
+        // document.getElementById("countdown").innerHTML = "Happy Birthday!";
+        document.getElementsByClassName('box')[0].click();
+      }
+    }, 1000);
+  </script>
+
+  <script>
+
+  </script>
+</body>
+
+</html>
