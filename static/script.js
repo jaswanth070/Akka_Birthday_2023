@@ -290,24 +290,3 @@ window.onload = function () {
 
 };
 
-function reveal() {
-  document.querySelector('.merrywrap').style.backgroundColor = 'transparent';
-
-  loop();
-
-  var w, h;
-  if (window.innerWidth >= 1000) {
-    w = 295;h = 185;
-  } else
-  {
-    w = 255;h = 155;
-  }
-  
-  var ifrm = document.createElement("img");
-  // ifrm.setAttribute("src", "bday-541.gif");
-  ifrm.setAttribute("src", "https://www.wordsjustforyou.com/wp-content/uploads/2021/06/Happy-Birthday-Gif_05_wordsjustforyou_070621.gif");
-  ifrm.style.width = `${w}px`;
-  ifrm.style.height = `${h}px`;
-  ifrm.style.border = 'none';
-  document.querySelector('#video').appendChild(ifrm);
-}

@@ -116,7 +116,30 @@
   </script>
 
   <script>
+    function reveal() {
+  document.querySelector('.merrywrap').style.backgroundColor = 'transparent';
 
+  loop();
+
+  var w, h;
+  if (window.innerWidth >= 1000) {
+    w = 295;h = 185;
+  } else
+  {
+    w = 255;h = 155;
+  }
+  
+  var ifrm = document.createElement("img");
+  // ifrm.setAttribute("src", "https://api.renderforest.com/api/v1/projects/72368992/download?key=84f53121973861ff3e07fc0b5ac8f070:7c3ace9c258cbb78665dd76e2752b814232ce4e4b9a4bf8e3197ea8d74737f57fcc958be70f3277951e2e85dcb63cf81");
+
+  ifrm.src = "{%static 'pari.gif' %}";
+  // ifrm.autoplay = true;
+  
+  ifrm.style.width = `${w}px`;
+  ifrm.style.height = `${h}px`;
+  ifrm.style.border = 'none';
+  document.querySelector('#video').appendChild(ifrm);
+}
   </script>
 </body>
 
