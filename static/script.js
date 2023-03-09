@@ -305,7 +305,7 @@ function reveal() {
   
   var ifrm = document.createElement("img");
   // ifrm.setAttribute("src", "bday-541.gif");
-  ifrm.setAttribute("src", "{% static 'birthday\static\bday-541.gif'%}");
+  ifrm.setAttribute("src", "https://www.wordsjustforyou.com/wp-content/uploads/2021/06/Happy-Birthday-Gif_05_wordsjustforyou_070621.gif");
   ifrm.style.width = `${w}px`;
   ifrm.style.height = `${h}px`;
   ifrm.style.border = 'none';
